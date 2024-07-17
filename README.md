@@ -1,7 +1,8 @@
-# Guide Complet pour Configurer un Monorepo TypeScript avec Turbo
+# Tutorial Build Monorepo with Next.js, NestJS, Turbo, TinaCMS and Clerk
 
-- ## [Article de blog](https://apprendre-la-programmation.net/guide-complet-monorepo-typescript-turbo-vercel)
-- ## Vidéo (Coming Soon)
+## 1. Guide Complet pour Configurer un Monorepo TypeScript avec Turbo
+- ### [Article de blog](https://apprendre-la-programmation.net/guide-complet-monorepo-typescript-turbo-vercel)
+- ### Vidéo (Coming Soon)
 
 ## What's inside?
 
