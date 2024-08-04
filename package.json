@@ -2,9 +2,12 @@
   "name": "tuto-monorepo-nextjs-nestjs-clerk-tinacms",
   "keywords": [
 	"nextjs",
-	"nest",
+	"next.js",
+	"nestjs",
 	"tinacms",
-	"clerk"
+	"ci",
+	"clerk",
+	"github actions"
   ],
   "private": true,
   "scripts": {
