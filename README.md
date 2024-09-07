@@ -1,7 +1,7 @@
 # Guide Complet pour Configurer un Monorepo TypeScript avec Turbo
 
 - ## [Article de blog](https://apprendre-la-programmation.net/guide-complet-monorepo-typescript-turbo-vercel)
-- ## Vidéo (Coming Soon)
+- ## [Vidéo](https://www.youtube.com/watch?v=x3yTjNY4Sp8)
 
 ## What's inside?
 
