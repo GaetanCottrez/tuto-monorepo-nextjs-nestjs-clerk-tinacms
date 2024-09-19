@@ -1,0 +1,62 @@
+on:
+  - push
+  - workflow_dispatch
+
+name: CI
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  global:
+    name: Lint, Build, Test & Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: ⚙️ Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: 🔄 Load repository
+        uses: actions/checkout@master
+
+      - name: 'Create env.local file in apps/web'
+        run: |
+          touch .env.local
+          echo MY_ENVIRONMENT_VAR=${{ secrets.MY_ENVIRONMENT_VAR }} >> .env.local
+          echo NEXT_PUBLIC_MY_ENVIRONMENT_VAR=${{ secrets.NEXT_PUBLIC_MY_ENVIRONMENT_VAR }} >> .env.local
+          cat .env.local
+        working-directory: apps/web
+
+      - name: 🛠️ Install dependencies
+        run: pnpm i
+
+      - name: 🖋️ Linting
+        run: pnpm run lint
+
+      - name: 🏗️ Build
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+        run: pnpm run build
+
+      - name: 🧪 Run tests
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+        run: pnpm run test
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: GaetanCottrez/tuto-monorepo-nextjs-nestjs-clerk-tinacms
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
