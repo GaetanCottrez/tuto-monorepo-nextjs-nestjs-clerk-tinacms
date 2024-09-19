@@ -2,6 +2,10 @@
 
 ## 1. Guide Complet pour Configurer un Monorepo TypeScript avec Turbo
 - ### [Article de blog](https://apprendre-la-programmation.net/guide-complet-monorepo-typescript-turbo-vercel)
+- ## [Vidéo](https://www.youtube.com/watch?v=x3yTjNY4Sp8)
+
+## 2. Mettre en place une CI GitHub Actions
+- ### [Article de blog](https://apprendre-la-programmation.net/configurer-ci-github-actions)
 - ### Vidéo (Coming Soon)
 
 ## What's inside?
